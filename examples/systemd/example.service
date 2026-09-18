@@ -1,0 +1,15 @@
+[Unit]
+Description=Example application service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=appuser
+WorkingDirectory=/opt/example
+ExecStart=/usr/bin/python3 /opt/example/app.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
